@@ -7,7 +7,6 @@ import { Title } from "../components/ui/Title";
 import { NumberContainer } from "../components/game/NumberContainer";
 import { Card } from "../components/ui/Card";
 import { InstructionText } from "../components/ui/InstructionText";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 
 const generateRandomBetween = (min, max, exclude) => {
   const randomNum = Math.floor(Math.random() * (max - min)) + min;

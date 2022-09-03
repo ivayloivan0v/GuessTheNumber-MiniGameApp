@@ -9,8 +9,8 @@ export const Title = ({ children }) => {
 
 const styles = StyleSheet.create({
   title: {
+    fontFamily: "open-sans-bold",
     fontSize: 24,
-    fontWeight: "bold",
     color: Colors.accent500,
     borderColor: Colors.accent500,
     borderWidth: 2,
