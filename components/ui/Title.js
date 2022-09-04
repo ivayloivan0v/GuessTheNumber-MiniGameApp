@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text, StyleSheet, Dimensions } from "react-native";
 
 import { Colors } from "../../constants/colors";
 
@@ -7,9 +7,11 @@ export const Title = ({ children }) => {
   return <Text style={styles.title}>{children}</Text>;
 };
 
+const deviceWidth = Dimensions.get("window").width;
+
 const styles = StyleSheet.create({
   title: {
-    fontSize: 24,
+    fontSize: deviceWidth < 380 ? 24 : 28,
     fontWeight: "bold",
     color: Colors.accent500,
     borderColor: Colors.primary600,
@@ -17,5 +19,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     textAlign: "center",
     padding: 12,
+    maxWidth: "80%",
+    width: 300,
   },
 });

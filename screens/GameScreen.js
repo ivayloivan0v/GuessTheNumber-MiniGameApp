@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Alert, FlatList, Text } from "react-native";
+import { View, StyleSheet, Alert, FlatList } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import { PrimaryButton } from "../components/ui/PrimaryButton";
@@ -30,7 +30,7 @@ export const GameScreen = ({ userNumber, onGameOver }) => {
     if (currentGuess === userNumber) {
       onGameOver(guessRounds.length);
     }
-  }, [currentGuess, userNumber, onGameOver]);
+  }, [currentGuess, userNumber, onGameOver, guessRounds]);
 
   useEffect(() => {
     minBaundary = 1;
@@ -46,9 +46,9 @@ export const GameScreen = ({ userNumber, onGameOver }) => {
         { text: "Sorry!", style: "cancel" },
       ]);
     }
-    if (direction === "lower") {
+    if (direction === "lower" && currentGuess > userNumber) {
       maxBaundary = currentGuess;
-    } else {
+    } else if (direction === "greater" && currentGuess < userNumber) {
       minBaundary = currentGuess + 1;
     }
     const newRandomNumber = generateRandomBetween(
@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 38,
+    alignItems: "center",
   },
   buttonsContainer: {
     flexDirection: "row",
